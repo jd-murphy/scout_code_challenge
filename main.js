@@ -41,23 +41,14 @@ while (d.deliveries.length != 0) {
 
     if (hd.getAvailableWeightCapacity() >= del.getWeight()) {
         hd.loadDelivery(d.getNextHeaviestDelivery(), d.peekLightestDelivery())
-        // let deliveriesLoaded = ' '
-        // hd.getDeliveries().forEach(element => {
-        //     deliveriesLoaded += `(${element.getDelivery()} ${element.getWeight()}) `
-        // })
     } else {
         for (let i = 1; i < d.deliveries.length; i++) {
             if (hd.getAvailableWeightCapacity() >= d.deliveries[i].getWeight()) {
                 del = d.deliveries.splice(i, 1)[0]
                 hd.loadDelivery(del, d.peekLightestDelivery())
-                // let deliveriesLoaded = ' '
-                // hd.getDeliveries().forEach(element => {
-                //     deliveriesLoaded += `(${element.getDelivery()} ${element.getWeight()}) `
-                // })
             } else {
                 i++
             }   
-
         }        
     }
 
@@ -66,7 +57,6 @@ while (d.deliveries.length != 0) {
             drone.deliverCargo()
         }
     })
-    
 }
 
 d.getDrones().forEach(drone => {
